@@ -1,0 +1,208 @@
+fileFormatVersion: 2
+guid: 3b7977ae83790fb43ae9c8efc48825e1
+timeCreated: 1477436729
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Clover_1
+    100002: Clover_2.001
+    100004: Clover_3
+    100006: Dandelion_Clump_1
+    100008: Dandelion_Clump_2
+    100010: Dandelion_Clump_3
+    100012: Dandelion_Single_1
+    100014: Dandelion_Single_2
+    100016: Dandelion_Single_3
+    100018: Dandelion_Single_4
+    100020: Flower_2
+    100022: Flower_2.001
+    100024: Flower_2.002
+    100026: Grass_Straw_1
+    100028: Grass_Straw_2
+    100030: Grass_Straw_3
+    100032: Grassblade_1
+    100034: Grassblade_2
+    100036: Grassblade_3
+    100038: Grassblade_4
+    100040: Grassblade_5
+    100042: Grassblade_6
+    100044: Grassblade_7
+    100046: Grassblade__8
+    100048: Grassblade__9
+    100050: Grassblade_mini_1
+    100052: Grassblade_mini_2
+    100054: //RootNode
+    400000: Clover_1
+    400002: Clover_2.001
+    400004: Clover_3
+    400006: Dandelion_Clump_1
+    400008: Dandelion_Clump_2
+    400010: Dandelion_Clump_3
+    400012: Dandelion_Single_1
+    400014: Dandelion_Single_2
+    400016: Dandelion_Single_3
+    400018: Dandelion_Single_4
+    400020: Flower_2
+    400022: Flower_2.001
+    400024: Flower_2.002
+    400026: Grass_Straw_1
+    400028: Grass_Straw_2
+    400030: Grass_Straw_3
+    400032: Grassblade_1
+    400034: Grassblade_2
+    400036: Grassblade_3
+    400038: Grassblade_4
+    400040: Grassblade_5
+    400042: Grassblade_6
+    400044: Grassblade_7
+    400046: Grassblade__8
+    400048: Grassblade__9
+    400050: Grassblade_mini_1
+    400052: Grassblade_mini_2
+    400054: //RootNode
+    2300000: Clover_1
+    2300002: Clover_2.001
+    2300004: Clover_3
+    2300006: Dandelion_Clump_1
+    2300008: Dandelion_Clump_2
+    2300010: Dandelion_Clump_3
+    2300012: Dandelion_Single_1
+    2300014: Dandelion_Single_2
+    2300016: Dandelion_Single_3
+    2300018: Dandelion_Single_4
+    2300020: Flower_2
+    2300022: Flower_2.001
+    2300024: Flower_2.002
+    2300026: Grass_Straw_1
+    2300028: Grass_Straw_2
+    2300030: Grass_Straw_3
+    2300032: Grassblade_1
+    2300034: Grassblade_2
+    2300036: Grassblade_3
+    2300038: Grassblade_4
+    2300040: Grassblade_5
+    2300042: Grassblade_6
+    2300044: Grassblade_7
+    2300046: Grassblade__8
+    2300048: Grassblade__9
+    2300050: Grassblade_mini_1
+    2300052: Grassblade_mini_2
+    3300000: Clover_1
+    3300002: Clover_2.001
+    3300004: Clover_3
+    3300006: Dandelion_Clump_1
+    3300008: Dandelion_Clump_2
+    3300010: Dandelion_Clump_3
+    3300012: Dandelion_Single_1
+    3300014: Dandelion_Single_2
+    3300016: Dandelion_Single_3
+    3300018: Dandelion_Single_4
+    3300020: Flower_2
+    3300022: Flower_2.001
+    3300024: Flower_2.002
+    3300026: Grass_Straw_1
+    3300028: Grass_Straw_2
+    3300030: Grass_Straw_3
+    3300032: Grassblade_1
+    3300034: Grassblade_2
+    3300036: Grassblade_3
+    3300038: Grassblade_4
+    3300040: Grassblade_5
+    3300042: Grassblade_6
+    3300044: Grassblade_7
+    3300046: Grassblade__8
+    3300048: Grassblade__9
+    3300050: Grassblade_mini_1
+    3300052: Grassblade_mini_2
+    4300000: Grassblade_mini_1
+    4300002: Grassblade__9
+    4300004: Grassblade__8
+    4300006: Dandelion_Single_2
+    4300008: Dandelion_Clump_3
+    4300010: Dandelion_Clump_2
+    4300012: Dandelion_Clump_1
+    4300014: Dandelion_Single_4
+    4300016: Dandelion_Single_3
+    4300018: Dandelion_Single_1
+    4300020: Grassblade_mini_2
+    4300022: Grass_Straw_3
+    4300024: Grass_Straw_2
+    4300026: Grass_Straw_1
+    4300028: Clover_3
+    4300030: Flower_2
+    4300032: Flower_2.002
+    4300034: Flower_2.001
+    4300036: Grassblade_5
+    4300038: Grassblade_3
+    4300040: Grassblade_1
+    4300042: Clover_2.001
+    4300044: Clover_1
+    4300046: Grassblade_2
+    4300048: Grassblade_7
+    4300050: Grassblade_4
+    4300052: Grassblade_6
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

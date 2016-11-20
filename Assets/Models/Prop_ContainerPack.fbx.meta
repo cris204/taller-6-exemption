@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: 989b6177cbcc3cd4e890e71b96c03618
+timeCreated: 1477666049
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: barrel1
+    100002: barrel2
+    100004: barrel2.001
+    100006: barrel2.002
+    100008: barrel2.003
+    100010: barrel2.004
+    100012: barrel2.005
+    100014: barrel2.006
+    100016: barrel2.007
+    100018: barrel2.008
+    100020: barrel2.009
+    100022: barrel2.011
+    100024: crate01
+    100026: crate01.001
+    100028: crate01.002
+    100030: crate01.003
+    100032: planck
+    100034: planck.001
+    100036: planck2.001
+    100038: planck3
+    100040: Point
+    100042: pot
+    100044: pot.001
+    100046: potCap
+    100048: potCap.001
+    100050: //RootNode
+    400000: barrel1
+    400002: barrel2
+    400004: barrel2.001
+    400006: barrel2.002
+    400008: barrel2.003
+    400010: barrel2.004
+    400012: barrel2.005
+    400014: barrel2.006
+    400016: barrel2.007
+    400018: barrel2.008
+    400020: barrel2.009
+    400022: barrel2.011
+    400024: crate01
+    400026: crate01.001
+    400028: crate01.002
+    400030: crate01.003
+    400032: planck
+    400034: planck.001
+    400036: planck2.001
+    400038: planck3
+    400040: Point
+    400042: pot
+    400044: pot.001
+    400046: potCap
+    400048: potCap.001
+    400050: //RootNode
+    2300000: barrel1
+    2300002: barrel2
+    2300004: barrel2.001
+    2300006: barrel2.002
+    2300008: barrel2.003
+    2300010: barrel2.004
+    2300012: barrel2.005
+    2300014: barrel2.006
+    2300016: barrel2.007
+    2300018: barrel2.008
+    2300020: barrel2.009
+    2300022: barrel2.011
+    2300024: crate01
+    2300026: crate01.001
+    2300028: crate01.002
+    2300030: crate01.003
+    2300032: planck
+    2300034: planck.001
+    2300036: planck2.001
+    2300038: planck3
+    2300040: pot
+    2300042: pot.001
+    2300044: potCap
+    2300046: potCap.001
+    3300000: barrel1
+    3300002: barrel2
+    3300004: barrel2.001
+    3300006: barrel2.002
+    3300008: barrel2.003
+    3300010: barrel2.004
+    3300012: barrel2.005
+    3300014: barrel2.006
+    3300016: barrel2.007
+    3300018: barrel2.008
+    3300020: barrel2.009
+    3300022: barrel2.011
+    3300024: crate01
+    3300026: crate01.001
+    3300028: crate01.002
+    3300030: crate01.003
+    3300032: planck
+    3300034: planck.001
+    3300036: planck2.001
+    3300038: planck3
+    3300040: pot
+    3300042: pot.001
+    3300044: potCap
+    3300046: potCap.001
+    4300000: pot.001
+    4300002: potCap.001
+    4300004: potCap
+    4300006: pot
+    4300008: barrel1
+    4300010: barrel2.001
+    4300012: barrel2.002
+    4300014: barrel2.003
+    4300016: barrel2.004
+    4300018: barrel2.005
+    4300020: barrel2.006
+    4300022: barrel2.007
+    4300024: barrel2.008
+    4300026: barrel2.009
+    4300028: barrel2.011
+    4300030: barrel2
+    4300032: crate01.001
+    4300034: crate01.002
+    4300036: crate01.003
+    4300038: crate01
+    4300040: planck2.001
+    4300042: planck
+    4300044: planck3
+    4300046: planck.001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
