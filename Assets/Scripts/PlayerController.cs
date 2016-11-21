@@ -2,7 +2,11 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
+
+    [SerializeField]
+    private AudioCalled AC;
 
     [SerializeField]
     private Camera camara_player;
@@ -176,6 +180,7 @@ public class PlayerController : MonoBehaviour {
         {
             player.SetInteger("move", 1);
             velocity.z = moveSettings.forwardVel*forwardInput;
+            AC.GetComponent<AudioCalled>().Music("Step");
             playerstats.RecuperarStamina(1);
 
         }
@@ -208,7 +213,7 @@ public class PlayerController : MonoBehaviour {
 
             player.SetInteger("move", 2);
             velocity.z = moveSettings.forwardVel * forwardInput * 2;
-
+            AC.GetComponent<AudioCalled>().Music("Step");
             playerstats.PerderStamina();
         }
         if (Mathf.Abs(sidesInput) > inputSettings.inputDelay)
@@ -312,7 +317,7 @@ public class PlayerController : MonoBehaviour {
                 playerstats.cantidad_llaves++;
                 break;
         }
-
+        AC.GetComponent<AudioCalled>().Music("Miracle");
 
     }
 
@@ -375,7 +380,8 @@ public class PlayerController : MonoBehaviour {
             playerstats.cantidad_llaves--;
             botonAccion.SetActive(false);
             other.gameObject.SetActive(false);
-         
+            AC.GetComponent<AudioCalled>().Music("Door");
+
         }
 
     }
