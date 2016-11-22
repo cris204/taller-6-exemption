@@ -59,22 +59,11 @@ public class PlayerStats : MonoBehaviour {
             instructions.StaminaAndFood();
         }
 
-        if (stamina <= 25)
-        {
-            //motionBlur.enabled = true;
-            //motionBlur.blurAmount = Mathf.Clamp(motionBlur.blurAmount *= Time.deltaTime, 0.25f, 0.5f);
-        }
-        else
-        {
-            //motionBlur.blurAmount = 0.25f;
-            //motionBlur.enabled = false;
-        }
-        
-        if (hambre == 0)
-        {
+   //     if (hambre == 0)
+     //   {
             //motionBlur.enabled = true;
             //motionBlur.blurAmount = Mathf.Clamp(motionBlur.blurAmount *= Time.deltaTime, 0.5f, 0.75f);
-        }
+       // }
     }
 
     public void PerderComida()

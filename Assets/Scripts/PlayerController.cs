@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
         {
             player.SetInteger("move", 1);
             velocity.z = moveSettings.forwardVel*forwardInput;
-            AC.GetComponent<AudioCalled>().Music("Step");
+           
             playerstats.RecuperarStamina(1);
         }
         else
@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
         {
             player.SetInteger("move", 2);
             velocity.z = moveSettings.forwardVel * forwardInput * 2;
-            AC.GetComponent<AudioCalled>().Music("Step");
+ 
             playerstats.PerderStamina();
         }
         
