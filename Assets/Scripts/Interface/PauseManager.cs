@@ -18,6 +18,9 @@ public class PauseManager : MonoBehaviour {
 
     public bool isPaused = false;
 
+    [SerializeField]
+    private PlayerController[] players;
+
     //Unity functions
 
     void Awake()
@@ -32,15 +35,26 @@ public class PauseManager : MonoBehaviour {
         }
     }
 
+    void Start()
+    {
+        players = FindObjectsOfType<PlayerController>();
+    }
+
     void Update()
     {
         if (isPaused)
         {
-            Time.timeScale = 0;
+            foreach(PlayerController player in players)
+            {
+                player.enabled = false;
+            }
         }
         else
         {
-            Time.timeScale = 1;
+            foreach(PlayerController player in players)
+            {
+                player.enabled = true;
+            }
         }
     }
 }

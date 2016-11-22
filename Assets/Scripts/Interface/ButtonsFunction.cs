@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ButtonsFunction : MonoBehaviour {
 
@@ -11,6 +13,8 @@ public class ButtonsFunction : MonoBehaviour {
     private GameObject firstScreen;
     [SerializeField]
     private GameObject filter;
+    [SerializeField]
+    private Animator fade;
 
     [Header("Menus")]
 
@@ -21,13 +25,24 @@ public class ButtonsFunction : MonoBehaviour {
     [SerializeField]
     private GameObject[] dialogBoxes = new GameObject[2];
 
-    [Header("References")]
+    [Header("EventSystem References")]
 
     [SerializeField]
-    private Animator fade;
+    private EventSystem eventSystem = EventSystem.current;
+    [SerializeField]
+    private GameObject[] menuButtons = new GameObject[2];
+    [SerializeField]
+    private GameObject[] optionButtons = new GameObject[3];
+    [SerializeField]
+    private GameObject[] dialogBoxesButtons = new GameObject[2]; 
 
     //Unity functions
 
+    void Awake()
+    {
+        eventSystem = FindObjectOfType<EventSystem>();    
+    }
+    
     void Start() //Setting first screen
     {
         logo.SetActive(false);
@@ -50,6 +65,8 @@ public class ButtonsFunction : MonoBehaviour {
             firstScreen.SetActive(false);
             logo.SetActive(true);
             menuScreens[0].SetActive(true);
+
+            eventSystem.SetSelectedGameObject(menuButtons[0]);
         }
     }
 
@@ -57,7 +74,18 @@ public class ButtonsFunction : MonoBehaviour {
 
     private void ActiveScreens(GameObject[] screens, bool state)
     {
-        for (int i = 0; i < screens.Length; i++) screens[i].SetActive(state);
+        foreach(GameObject screen in screens)
+        {
+            screen.SetActive(state);
+        }
+    }
+
+    private void ActiveButtons(Button[] buttons, bool state)
+    {
+        foreach(Button button in buttons)
+        {
+            button.enabled = state;
+        }
     }
 
     //Buttons functions - Main menu --------------------------------------------------
@@ -66,6 +94,7 @@ public class ButtonsFunction : MonoBehaviour {
     {
         menuScreens[0].SetActive(false);
         menuScreens[1].SetActive(true);
+        eventSystem.SetSelectedGameObject(menuButtons[1]);
     }
 
     public void Credits()
@@ -81,12 +110,14 @@ public class ButtonsFunction : MonoBehaviour {
         menuScreens[1].SetActive(false); //Option menu is disable
         logo.SetActive(false);
         optionsScreens[optionScreen].SetActive(true); //Option screen is enable
+        eventSystem.SetSelectedGameObject(optionButtons[optionScreen]);
     }
 
     public void BackToMenu()
     {
         menuScreens[1].SetActive(false);
         menuScreens[0].SetActive(true);
+        eventSystem.SetSelectedGameObject(menuButtons[0]);
     }
 
     public void BackToOptions(int optionsScreen)
@@ -96,6 +127,7 @@ public class ButtonsFunction : MonoBehaviour {
         optionsScreens[optionsScreen].SetActive(false); //Option screen is disable
         logo.SetActive(true);
         menuScreens[1].SetActive(true); //Options menu is enable
+        eventSystem.SetSelectedGameObject(menuButtons[1]);
     }
 
     //Buttons function - Dialog boxes
@@ -104,12 +136,22 @@ public class ButtonsFunction : MonoBehaviour {
     {
         filter.SetActive(true);
         dialogBoxes[dialogBox].SetActive(true); //Enable dialog box
+
+        Button[] buttons =  menuButtons[dialogBox].transform.parent.GetComponentsInChildren<Button>();
+        ActiveButtons(buttons,false);
+
+        eventSystem.SetSelectedGameObject(dialogBoxesButtons[dialogBox]);
     }
 
     public void DesactiveDialogBox(int dialogBox)
     {
         filter.SetActive(false);
         dialogBoxes[dialogBox].SetActive(false); //Disable dialog box
+
+        Button[] buttons =  menuButtons[dialogBox].transform.parent.GetComponentsInChildren<Button>();
+        ActiveButtons(buttons,true);
+
+        eventSystem.SetSelectedGameObject(menuButtons[dialogBox]);
     }
 
     public void Start_YES()

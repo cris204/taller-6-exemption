@@ -12,7 +12,7 @@ public class Credits : MonoBehaviour {
 
     void Start()
     {
-        fade.Play("Fade01");
+        fade.Play("Fade01", -1, 0);
 
         SequenceOne();
     }
@@ -41,7 +41,7 @@ public class Credits : MonoBehaviour {
 
     private void Skip()
     {
-        fade.Play("Fade01");
+        fade.Play("Fade02", -1, 0);
 
         LoadingManager.scene = 0; //Loads Menu scene
         LoadingManager.Loading();
