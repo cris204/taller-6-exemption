@@ -2,9 +2,10 @@
 using System.Collections;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(PlayerStats))]
+[RequireComponent(typeof(Instructions))]
 public class PlayerController : MonoBehaviour
 {
-
     [SerializeField]
     private AudioCalled AC;
 
@@ -24,10 +25,8 @@ public class PlayerController : MonoBehaviour
 
     Vector3 velocity = Vector3.zero;
 
-
     [SerializeField]
     private Text antorchas;
-
 
     [SerializeField]
     private Animator player;
@@ -38,8 +37,6 @@ public class PlayerController : MonoBehaviour
     float forwardInput, turnInput, jumpInput, upInput, sidesInput;
     bool grounded;
 
-
-
     [SerializeField]
     private GameObject gamecontroller;
 
@@ -49,10 +46,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float tiempo;
 
+    [SerializeField]
+    private Instructions instructions;
+
     [System.Serializable]
     public class MoveSetting
     {
-       
         public float forwardVel = 12;
        
         public float rotateVel = 100;
@@ -70,8 +69,7 @@ public class PlayerController : MonoBehaviour
 
     [System.Serializable]
     public class InputSettings
-    {
-        
+    {   
         public float inputDelay = 0.1f;
         public string forward_axis = "Vertical";
         public string turn_axis = "Horizontal";
@@ -89,15 +87,19 @@ public class PlayerController : MonoBehaviour
     public PhysSettings physSettings = new PhysSettings();
     
     public InputSettings inputSettings = new InputSettings();
-  
 
+    void Awake()
+    {
+        playerstats = GetComponent<PlayerStats>();
+        instructions = GetComponent<Instructions>();    
+    }
+    
     void Start()
     {
         botonAccion.SetActive(false);
         targetRotation = transform.rotation;
         rb = GetComponent<Rigidbody>();
         forwardInput = turnInput = jumpInput= 0;
-
     }
 
     void GetInput()
@@ -107,29 +109,27 @@ public class PlayerController : MonoBehaviour
         jumpInput = Input.GetAxisRaw(inputSettings.jump_axis);//no interpolada
         upInput = Input.GetAxis(inputSettings.up_axis);
         sidesInput = Input.GetAxis(inputSettings.sides_axis);
-         
     }
-
     void Update()
     {
-
         antorchas.text = cantidad_bengalas.ToString();
         GetInput();
         Turn();
         playerstats.PerderComida();
 
-
-        if (Input.GetButtonDown(inputSettings.poner_Bengala) && cantidad_bengalas > 0){
-            
+        if (Input.GetButtonDown(inputSettings.poner_Bengala) && cantidad_bengalas > 0)
+        {    
             PonerBengalas();
 
+            if(!instructions.torchesInstructions)
+            {
+                instructions.Torches();
+            }
         }
-
 
         if (playerstats.b_activacion_comida && tiempo < 10f  )
         {
             tiempo += Time.deltaTime;
-        
         }
         else 
         {
@@ -144,9 +144,7 @@ public class PlayerController : MonoBehaviour
         {
             playerstats.b_activacion_stamina = false;
         }
-
     }
-
 
     void FixedUpdate()
     {
@@ -159,7 +157,8 @@ public class PlayerController : MonoBehaviour
         {
             Walk();
         }
-            Jump();
+
+        Jump();
 
         rb.velocity = transform.TransformDirection(velocity);
     }
@@ -170,9 +169,7 @@ public class PlayerController : MonoBehaviour
         {
             return targetRotation;
         }
-
     }
-
 
     void Walk()
     {
@@ -182,7 +179,6 @@ public class PlayerController : MonoBehaviour
             velocity.z = moveSettings.forwardVel*forwardInput;
             AC.GetComponent<AudioCalled>().Music("Step");
             playerstats.RecuperarStamina(1);
-
         }
         else
         {
@@ -194,68 +190,52 @@ public class PlayerController : MonoBehaviour
 
         if (Mathf.Abs(sidesInput) > inputSettings.inputDelay)
         {
-
             velocity.x = moveSettings.forwardVel * sidesInput;
-
         }
         else
         {
             velocity.x = 0;
         }
-
-
-        }
+    }
 
     void Run()
     {
         if (Mathf.Abs(forwardInput) > inputSettings.inputDelay)
         {
-
             player.SetInteger("move", 2);
             velocity.z = moveSettings.forwardVel * forwardInput * 2;
             AC.GetComponent<AudioCalled>().Music("Step");
             playerstats.PerderStamina();
         }
+        
         if (Mathf.Abs(sidesInput) > inputSettings.inputDelay)
         {
-
             velocity.x = moveSettings.forwardVel * sidesInput*2;
-
         }
-
     }
-
 
     void Turn()
     {
         if (Mathf.Abs(turnInput) > inputSettings.inputDelay)
         {
-            
-
              targetRotation *= Quaternion.AngleAxis(moveSettings.rotateVel * turnInput * Time.deltaTime, Vector3.up);
-
-            transform.rotation = targetRotation;
+             transform.rotation = targetRotation;
         }
 
         if (Mathf.Abs(upInput) > inputSettings.inputDelay)
         {
-   
             velrot += Time.deltaTime;
             camara_player.transform.localEulerAngles = new Vector3(Mathf.Clamp(velrot, -80, 40), transform.rotation.y);
 
             if (0 > upInput && velrot >-80f)
             {
-                velrot += 2.5f*upInput;
-              
+                velrot += 2.5f*upInput;     
             }
             else if(0 < upInput && velrot <40f)
             {
                 velrot -= 2.5f*-upInput;
-              
             }
-
         }
-            
     }
 
     void Jump()
@@ -264,9 +244,7 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = moveSettings.jumpVel;
 
-            player.SetInteger("move", 3);
-       
-            
+            player.SetInteger("move", 3);   
         }
         else if(jumpInput==0 && grounded)
         {
@@ -275,32 +253,25 @@ public class PlayerController : MonoBehaviour
         else
         {
             velocity.y -= physSettings.downAccel;
-                 
         }
     }
 
     void PonerBengalas()
     {
-       
         GameObject bengala =gamecontroller.GetComponent<Bengala_pool>().ObtenerBengalas();
         bengala.transform.position = transform.position;
         cantidad_bengalas--;
     }
 
-
     void Powerup(int a)
     {
-       tiempo = 0;
+        tiempo = 0;
         switch (a)
-        {
-            
+        {    
             case 1 :
-               playerstats.hambre = 100;
+                playerstats.hambre = 100;
                 playerstats.b_activacion_comida = true;
-                
-            
                 break;
-
 
             case 2:
                 playerstats.stamina = 100;
@@ -310,7 +281,6 @@ public class PlayerController : MonoBehaviour
             case 3:
                 playerstats.stamina = 100;
                 playerstats.hambre = 100;
-
                 break;
 
             case 4:
@@ -318,26 +288,18 @@ public class PlayerController : MonoBehaviour
                 break;
         }
         AC.GetComponent<AudioCalled>().Music("Miracle");
-
     }
-
 
     void OnCollisionStay(Collision other)
     {
-      
         if (other.gameObject.tag == "Ground")
         {
-
             grounded = true;
         }
-
     }
 
     void OnTriggerStay(Collider other)
     {
-     
-   
-
         if(other.gameObject.tag=="antorcha")
         {
             botonBengalas.SetActive(true);
@@ -351,21 +313,25 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-           botonAccion.SetActive(true);
+            botonAccion.SetActive(true);
         }
-
 
         if (other.gameObject.tag == "Statue" && Input.GetButtonDown(inputSettings.botonAccion))
         {
-           other.transform.FindChild("Explosion").gameObject.SetActive(true);
+            if(!instructions.statuesInstructions)
+            {
+                instructions.Statues();
+            }
+
+            other.transform.FindChild("Explosion").gameObject.SetActive(true);
           
             int random = Random.Range(0, 5);
             Powerup(random);
 
             other.transform.GetChild(0).gameObject.SetActive(false);
-
             
             BoxCollider[] boxes= other.GetComponents<BoxCollider>();
+            
             foreach(BoxCollider box in boxes)
             {
                 box.enabled=false;
@@ -376,35 +342,29 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "Puerta" && playerstats.cantidad_llaves > 0 && Input.GetButtonDown(inputSettings.botonAccion))
         {
-           
+            if(!instructions.keysInstructions)
+            {
+                instructions.Keys();
+            }
+            
             playerstats.cantidad_llaves--;
             botonAccion.SetActive(false);
             other.gameObject.SetActive(false);
             AC.GetComponent<AudioCalled>().Music("Door");
-
         }
-
     }
-
 
     void OnCollisionExit(Collision other)
     {
-
         if (other.gameObject.tag == "Ground")
         {
-
             grounded = false;
         }
-
-     }
+    }
 
     void OnTriggerExit(Collider other)
     {
         botonAccion.SetActive(false);
         botonBengalas.SetActive(false);
     }
-
- 
-    
-
 }
