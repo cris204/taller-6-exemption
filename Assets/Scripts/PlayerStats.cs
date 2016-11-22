@@ -60,7 +60,7 @@ public class PlayerStats : MonoBehaviour {
         }
 
    //     if (hambre == 0)
-     //   {
+       // {
             //motionBlur.enabled = true;
             //motionBlur.blurAmount = Mathf.Clamp(motionBlur.blurAmount *= Time.deltaTime, 0.5f, 0.75f);
        // }

@@ -224,16 +224,19 @@ public class PlayerController : MonoBehaviour
         if (Mathf.Abs(upInput) > inputSettings.inputDelay)
         {
             velrot += Time.deltaTime;
+
+            if (0 > upInput && velrot > -80f)
+            {
+                velrot += 2.5f * upInput;
+            }
+            else if (0 < upInput && velrot < 40f)
+            {
+                velrot -= 2.5f * -upInput;
+            }
+
             camara_player.transform.localEulerAngles = new Vector3(Mathf.Clamp(velrot, -80, 40), transform.rotation.y);
 
-            if (0 > upInput && velrot >-80f)
-            {
-                velrot += 2.5f*upInput;     
-            }
-            else if(0 < upInput && velrot <40f)
-            {
-                velrot -= 2.5f*-upInput;
-            }
+         
         }
     }
 

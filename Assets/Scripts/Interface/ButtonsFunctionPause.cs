@@ -21,7 +21,7 @@ public class ButtonsFunctionPause : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Start"))
         {
             PauseManager.Instance.isPaused = !PauseManager.Instance.isPaused;
         }
