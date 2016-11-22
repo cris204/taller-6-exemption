@@ -29,6 +29,11 @@ public class SceneController : MonoBehaviour {
         playerAnimator.SetTrigger("isIntro");
     }
 
+    public void DisableAnimator()
+    {
+        playerAnimator.enabled = false;
+    }
+    
     public void EnableController()
     {
         playerController.enabled = true;

@@ -42,10 +42,10 @@ public class Instructions : MonoBehaviour {
 	
 	//Unity functions
 
-	void Awake()
-	{
-		player = GetComponent<PlayerController>();
-	}
+	//void Awake()
+	//{
+		//player = GetComponent<PlayerController>();
+	//}
 	
 	void Start()
 	{
@@ -61,11 +61,6 @@ public class Instructions : MonoBehaviour {
 
 	void Update()
 	{
-		Debug.Log(count);
-		//Debug.Log(firstInstructionsImages.Length);
-		//Debug.Log(staminaAndFoodInstructionsImages.Length);
-		//Debug.Log(keysInstructionsImages.Length);
-
 		if (Input.anyKeyDown)
 		{
 			if (firstInstructionsImages[count].activeInHierarchy)

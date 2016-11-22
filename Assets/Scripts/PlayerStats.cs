@@ -27,16 +27,16 @@ public class PlayerStats : MonoBehaviour {
 
     public bool b_activacion_stamina = false;
 
-    [SerializeField]
-    private Instructions instructions;
+    //[SerializeField]
+    //private Instructions instructions;
     
-    [SerializeField]
-    private MotionBlur motionBlur;
+    //[SerializeField]
+    //private MotionBlur motionBlur;
 
-    void Awake()
-    {
-        instructions = GetComponent<Instructions>();
-    }
+    //void Awake()
+    //{
+        //instructions = GetComponent<Instructions>();
+    //}
     
     void Start ()
     {
@@ -49,31 +49,31 @@ public class PlayerStats : MonoBehaviour {
     {
         llaves.text = cantidad_llaves.ToString();
 
-        if (!instructions.staminaAndFoodInstructions && stamina<50)
-        {
-            instructions.StaminaAndFood();
-        }
+        //if (!instructions.staminaAndFoodInstructions && stamina<50)
+        //{
+        //    instructions.StaminaAndFood();
+        //}
 
-        if (!instructions.staminaAndFoodInstructions && hambre<50)
-        {
-            instructions.StaminaAndFood();
-        }
+        //if (!instructions.staminaAndFoodInstructions && hambre<50)
+        //{
+        //    instructions.StaminaAndFood();
+        //}
 
         if (stamina <= 25)
         {
-            motionBlur.enabled = true;
-            motionBlur.blurAmount = Mathf.Clamp(motionBlur.blurAmount *= Time.deltaTime, 0.25f, 0.5f);
+            //motionBlur.enabled = true;
+            //motionBlur.blurAmount = Mathf.Clamp(motionBlur.blurAmount *= Time.deltaTime, 0.25f, 0.5f);
         }
         else
         {
-            motionBlur.blurAmount = 0.25f;
-            motionBlur.enabled = false;
+            //motionBlur.blurAmount = 0.25f;
+            //motionBlur.enabled = false;
         }
         
         if (hambre == 0)
         {
-            motionBlur.enabled = true;
-            motionBlur.blurAmount = Mathf.Clamp(motionBlur.blurAmount *= Time.deltaTime, 0.5f, 0.75f);
+            //motionBlur.enabled = true;
+            //motionBlur.blurAmount = Mathf.Clamp(motionBlur.blurAmount *= Time.deltaTime, 0.5f, 0.75f);
         }
     }
 
@@ -121,10 +121,10 @@ public class PlayerStats : MonoBehaviour {
     {
         if (other.gameObject.tag == "Llave")
         {
-            if(!instructions.keysInstructions)
-            {
-                instructions.Keys();
-            }
+            //if(!instructions.keysInstructions)
+            //{
+            //    instructions.Keys();
+            //}
             
             cantidad_llaves++;
             other.gameObject.SetActive(false);
@@ -132,10 +132,10 @@ public class PlayerStats : MonoBehaviour {
 
         if (other.gameObject.tag == "comida")
         {
-            if(!instructions.foodInstructions)
-            {
-                instructions.Food();
-            }
+            //if(!instructions.foodInstructions)
+            //{
+            //    instructions.Food();
+            //}
 
             GanarComida();
             other.gameObject.SetActive(false);
