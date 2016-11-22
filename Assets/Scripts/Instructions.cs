@@ -63,51 +63,53 @@ public class Instructions : MonoBehaviour {
 	{
 		if (Input.anyKeyDown)
 		{
+			if (staminaAndFoodInstructionsImages[0].activeInHierarchy)
+			{
+				staminaAndFoodInstructionsImages[0].SetActive(false);
+				staminaAndFoodInstructionsImages[1].SetActive(true);
+			}
+			else if (staminaAndFoodInstructionsImages[1].activeInHierarchy)
+			{
+				staminaAndFoodInstructionsImages[1].SetActive(false);
+				staminaAndFoodInstructionsImages[2].SetActive(true);
+			}
+			else if (staminaAndFoodInstructionsImages[2].activeInHierarchy)
+			{
+				staminaAndFoodInstructionsImages[2].SetActive(false);
+				filter.SetActive(false);
+			}
+				
 			if (firstInstructionsImages[count].activeInHierarchy)
 			{
-				if (count < firstInstructionsImages.Length-1)
+				if (count == firstInstructionsImages.Length-1)
+				{
+					filter.SetActive(false);
+					firstInstructionsImages[count].SetActive(false);
+					count = 0;
+
+					player.enabled = true;
+				}
+				else
 				{
 					firstInstructionsImages[count].SetActive(false);
 					count++;
 					firstInstructionsImages[count].SetActive(true);
 				}
-				else
-				{
-					filter.SetActive(false);
-					firstInstructionsImages[count].SetActive(false);
-					count = 0;
-				}
-			}
-
-			if (staminaAndFoodInstructionsImages[count].activeInHierarchy)
-			{
-				if (count < staminaAndFoodInstructionsImages.Length-1)
-				{
-					staminaAndFoodInstructionsImages[count].SetActive(false);
-					count++;
-					staminaAndFoodInstructionsImages[count].SetActive(true);
-				}
-				else
-				{
-					filter.SetActive(false);
-					staminaAndFoodInstructionsImages[count].SetActive(false);
-					count = 0;
-				}
 			}
 
 			if (keysInstructionsImages[count].activeInHierarchy)
 			{
-				if (count < keysInstructionsImages.Length-1)
-				{
-					keysInstructionsImages[count].SetActive(false);
-					count++;
-					keysInstructionsImages[count].SetActive(true);
-				}
-				else
+				if (count == keysInstructionsImages.Length-1)
 				{
 					filter.SetActive(false);
 					keysInstructionsImages[count].SetActive(false);
 					count = 0;
+				}
+				else
+				{
+					keysInstructionsImages[count].SetActive(false);
+					count++;
+					keysInstructionsImages[count].SetActive(true);
 				}
 			}
 
@@ -145,7 +147,6 @@ public class Instructions : MonoBehaviour {
 	{
 		filter.SetActive(true);
 		firstInstructionsImages[0].SetActive(true);
-		count++;
 		firstInstructions = true;
 	}
 
@@ -153,7 +154,6 @@ public class Instructions : MonoBehaviour {
 	{
 		filter.SetActive(true);
 		staminaAndFoodInstructionsImages[0].SetActive(true);
-		count++;
 		staminaAndFoodInstructions = true;
 	}
 
@@ -161,7 +161,6 @@ public class Instructions : MonoBehaviour {
 	{
 		filter.SetActive(true);
 		keysInstructionsImages[0].SetActive(true);
-		count++;
 		keysInstructions = true;
 	}
 

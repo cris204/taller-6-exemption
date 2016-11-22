@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     private float tiempo;
 
     [SerializeField]
-    //private Instructions instructions;
+    private Instructions instructions;
 
     [System.Serializable]
     public class MoveSetting
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         //playerstats = GetComponent<PlayerStats>();
         //instructions = GetComponent<Instructions>();    
     //}
-    
+
     void Start()
     {
         botonAccion.SetActive(false);
@@ -120,10 +120,10 @@ public class PlayerController : MonoBehaviour
         {    
             PonerBengalas();
 
-            //if(!instructions.torchesInstructions)
-            //{
-            //    instructions.Torches();
-            //}
+            if(!instructions.torchesInstructions)
+            {
+                instructions.Torches();
+            }
         }
 
         if (playerstats.b_activacion_comida && tiempo < 10f  )
@@ -317,10 +317,10 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "Statue" && Input.GetButtonDown(inputSettings.botonAccion))
         {
-            //if(!instructions.statuesInstructions)
-            //{
-            //    instructions.Statues();
-            //}
+            if(!instructions.statuesInstructions)
+            {
+                instructions.Statues();
+            }
 
             other.transform.FindChild("Explosion").gameObject.SetActive(true);
           
@@ -341,10 +341,10 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "Puerta" && playerstats.cantidad_llaves > 0 && Input.GetButtonDown(inputSettings.botonAccion))
         {
-            //if(!instructions.keysInstructions)
-            //{
-            //    instructions.Keys();
-            //}
+            if(!instructions.keysInstructions)
+            {
+                instructions.Keys();
+            }
             
             playerstats.cantidad_llaves--;
             botonAccion.SetActive(false);

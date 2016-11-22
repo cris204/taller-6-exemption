@@ -5,6 +5,8 @@ public class SceneController : MonoBehaviour {
 
 	[SerializeField]
     private PlayerController playerController;
+    [SerializeField]
+    private Instructions instructions;
 
     [HeaderAttribute("Animators")]
     
@@ -15,9 +17,13 @@ public class SceneController : MonoBehaviour {
 
     //Unity functions
 
+    void Awake()
+    {
+        playerController.enabled = false;    
+    }
+
     void Start()
     {
-        playerController.enabled = false;
         fadeAnimator.SetTrigger("isFadeIn");
         PlayIntroAnimation();
     }
@@ -29,14 +35,24 @@ public class SceneController : MonoBehaviour {
         playerAnimator.SetTrigger("isIntro");
     }
 
+    public void ActiveFirstInstructions()
+    {
+        instructions.FirstInstructions();
+    }
+    
+    public void EnabledController()
+    {
+        playerController.enabled = true;
+    }
+
+    public void DisabledController()
+    {
+        playerController.enabled = false;
+    }
+    
     public void DisableAnimator()
     {
         playerAnimator.enabled = false;
-    }
-    
-    public void EnableController()
-    {
-        playerController.enabled = true;
     }
 
     private void Blink()

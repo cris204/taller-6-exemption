@@ -46,14 +46,14 @@ public class PauseManager : MonoBehaviour {
         {
             foreach(PlayerController player in players)
             {
-                player.enabled = false;
+                //player.enabled = false;
             }
         }
         else
         {
             foreach(PlayerController player in players)
             {
-                player.enabled = true;
+                //player.enabled = true;
             }
         }
     }

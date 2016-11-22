@@ -27,8 +27,8 @@ public class PlayerStats : MonoBehaviour {
 
     public bool b_activacion_stamina = false;
 
-    //[SerializeField]
-    //private Instructions instructions;
+    [SerializeField]
+    private Instructions instructions;
     
     //[SerializeField]
     //private MotionBlur motionBlur;
@@ -49,15 +49,15 @@ public class PlayerStats : MonoBehaviour {
     {
         llaves.text = cantidad_llaves.ToString();
 
-        //if (!instructions.staminaAndFoodInstructions && stamina<50)
-        //{
-        //    instructions.StaminaAndFood();
-        //}
+        if (!instructions.staminaAndFoodInstructions && stamina<50)
+        {
+            instructions.StaminaAndFood();
+        }
 
-        //if (!instructions.staminaAndFoodInstructions && hambre<50)
-        //{
-        //    instructions.StaminaAndFood();
-        //}
+        if (!instructions.staminaAndFoodInstructions && hambre<50)
+        {
+            instructions.StaminaAndFood();
+        }
 
         if (stamina <= 25)
         {
@@ -121,10 +121,10 @@ public class PlayerStats : MonoBehaviour {
     {
         if (other.gameObject.tag == "Llave")
         {
-            //if(!instructions.keysInstructions)
-            //{
-            //    instructions.Keys();
-            //}
+            if(!instructions.keysInstructions)
+            {
+                instructions.Keys();
+            }
             
             cantidad_llaves++;
             other.gameObject.SetActive(false);
@@ -132,10 +132,10 @@ public class PlayerStats : MonoBehaviour {
 
         if (other.gameObject.tag == "comida")
         {
-            //if(!instructions.foodInstructions)
-            //{
-            //    instructions.Food();
-            //}
+            if(!instructions.foodInstructions)
+            {
+                instructions.Food();
+            }
 
             GanarComida();
             other.gameObject.SetActive(false);
